@@ -39,7 +39,7 @@ struct CoinManager {
                 }
                 
                 let dataString = String(data: data!, encoding: .utf8)
-                print(dataString1)
+                print(dataString!)
             }
             task.resume()
         }
