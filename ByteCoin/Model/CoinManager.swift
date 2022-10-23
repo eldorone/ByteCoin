@@ -8,7 +8,7 @@
 import Foundation
 
 protocol CoinManagerDelegate {
-    //func didUpdateWeather(_ weatherManger: WeatherManager, weather: WeatherModel)
+    func didUpdatePrice(_ weatherManger: WeatherManager, weather: WeatherModel)
     func didFailWithError(error: Error)
 }
 
@@ -45,11 +45,14 @@ struct CoinManager {
         }
     }
     
-    func parseJSON(_ coinData: Data) -> Double? {
+    func parseJSON(_ coinData: Data) -> String? {
         let decoder = JSONDecoder()
         do {
             let decodedData = try decoder.decode(CoinData.self, from: coinData)
-            let lastPrice = decodedData.rate
+            print(decodedData.rate)
+            let lastPrice = String(format: "%.2f", decodedData.rate)
+    
+            print(lastPrice)
             return lastPrice
             
         } catch {
