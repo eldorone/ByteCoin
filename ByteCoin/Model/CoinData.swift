@@ -8,5 +8,5 @@
 import Foundation
 
 struct CoinData: Codable {
-    let rate: Double
+    let CoinRate: Double
 }
